@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+
+    <title>Log in | I'll BeCare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="Assets/bootstrap-5.3.8-dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="Assets/styles.css" />
+  </head>
+
+  <body>
+    <main class="login-page">
+      <!-- LEFT BRANDING PANEL -->
+      <section class="intro-panel">
+        <div class="intro-content">
+          <a class="brand intro-brand" href="index.html">
+            <img src="Assets/Logo.png" alt="I'll BeCare" />
+          </a>
+
+          <div class="intro-text">
+            <p class="tagline">I'll BeCare anytime, anywhere.</p>
+
+            <h1>Care and household support when you need it.</h1>
+
+            <p class="intro-description">
+              Connect with verified Providers for flexible, short-term care and
+              household support services in Siquijor Island.
+            </p>
+          </div>
+
+          <div class="services">
+            <div class="service">
+              <div class="service-icon" aria-hidden="true">👶</div>
+              <div>
+                <h2>Childcare</h2>
+                <p>Reliable support for children and families.</p>
+              </div>
+            </div>
+
+            <div class="service">
+              <div class="service-icon" aria-hidden="true">👵</div>
+              <div>
+                <h2>Senior Care</h2>
+                <p>Companionship and everyday assistance.</p>
+              </div>
+            </div>
+
+            <div class="service">
+              <div class="service-icon" aria-hidden="true">🐾</div>
+              <div>
+                <h2>Pet Care</h2>
+                <p>Helpful support for your beloved pets.</p>
+              </div>
+            </div>
+
+            <div class="service">
+              <div class="service-icon" aria-hidden="true">🏠</div>
+              <div>
+                <h2>Housekeeping</h2>
+                <p>Practical help for your household needs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT LOGIN PANEL -->
+      <section class="login-panel">
+        <div class="login-container">
+          <a class="brand mobile-brand" href="index.html">
+            <img src="Assets/Logo.png" alt="I'll BeCare" />
+          </a>
+
+          <div class="auth-card">
+            <div class="auth-card-header">
+              <span class="welcome-label"> WELCOME BACK </span>
+
+              <h2>Log in to I'll BeCare</h2>
+
+              <p>
+                Access your account to manage your care and household support
+                needs.
+              </p>
+            </div>
+
+            <form
+              class="auth-form"
+              method="post"
+              action="views/login.php"
+              novalidate
+            >
+              <p
+                class="notice"
+                id="status"
+                tabindex="-1"
+                role="status"
+                hidden
+              ></p>
+
+              <!-- EMAIL -->
+              <div class="field">
+                <label for="email"> Email address </label>
+
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="username"
+                  placeholder="Enter your email address"
+                  data-v="required email"
+                  required
+                />
+
+                <span class="err" aria-live="polite"></span>
+              </div>
+
+              <!-- PASSWORD -->
+              <div class="field">
+                <div class="password-label-row">
+                  <label for="password"> Password </label>
+
+                  <!-- NEW: Forgot password -->
+
+                  <a class="forgot" href="views/forgot_password.html">
+                    Forgot password?
+                  </a>
+                </div>
+
+                <div class="pw">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="Enter your password"
+                    data-v="required"
+                    required
+                  />
+
+                  <button
+                    class="eye"
+                    type="button"
+                    data-target="password"
+                    aria-pressed="false"
+                    aria-label="Show password"
+                  >
+                    <!-- Eye (password hidden) -->
+                    <svg
+                      class="eye-open"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+
+                    <!-- Eye with slash (password visible) -->
+                    <svg class="eye-off" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"
+                      />
+                      <line x1="1" y1="1" x2="23" y2="23" />
+                    </svg>
+                  </button>
+                </div>
+
+                <span class="err" aria-live="polite"></span>
+              </div>
+
+              <button class="go" type="submit">Log in</button>
+            </form>
+
+            <p class="alt">
+              New here?
+
+              <a href="client/register.html"> Sign up as a client </a>
+
+              or
+
+              <a href="provider/register_provider.html">
+                Sign up as a provider </a
+              >.
+            </p>
+          </div>
+
+          <p class="login-footer">© 2026 I'll BeCare · Siquijor Island</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="JS/login.js"></script>
+
+    <script src="Assets/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

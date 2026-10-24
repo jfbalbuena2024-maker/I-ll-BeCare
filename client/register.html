@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#2b6a82" />
+    <title>Create Client Account | I'll BeCare</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="../Assets/bootstrap-5.3.8-dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="../Assets/register_client.css?v=terms-format-20261024" />
+  </head>
+
+  <body>
+    <!-- Icon sprite (defined once, reused by both password fields) -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="i-eye" viewBox="0 0 24 24">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" />
+        <circle cx="12" cy="12" r="3" />
+      </symbol>
+      <symbol id="i-eye-off" viewBox="0 0 24 24">
+        <path
+          d="M17.94 17.94A10.94 10.94 0 0 1 12 20C5 20 1 12 1 12a18.5 18.5 0 0 1 5.06-5.94"
+        />
+        <path
+          d="M9.9 4.24A10.9 10.9 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"
+        />
+        <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24" />
+        <line x1="1" y1="1" x2="23" y2="23" />
+      </symbol>
+    </svg>
+
+    <main class="container reg-main">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-11 col-xl-10 col-xxl-9">
+          <article class="card reg-card">
+            <!-- Header -->
+            <header class="reg-header">
+              <img
+                src="../Assets/Logo.png"
+                alt="I'll BeCare logo"
+                class="reg-logo"
+              />
+              <h1 class="reg-title">Create your Client account</h1>
+              <p class="reg-subtitle">
+                Book trusted, verified care and household help on Siquijor
+                Island.
+              </p>
+            </header>
+
+            <!-- Body -->
+            <div class="reg-body">
+              <noscript>
+                <div class="alert alert-danger">
+                  JavaScript must be enabled to create an account.
+                </div>
+              </noscript>
+
+              <div
+                id="status"
+                class="alert d-none"
+                role="status"
+                aria-live="polite"
+              ></div>
+
+              <form
+                id="registerForm"
+                method="post"
+                action="../views/register_client.php"
+                novalidate
+              >
+                <!-- 1. Personal details -->
+                <fieldset class="reg-section">
+                  <legend class="reg-legend">
+                    <span class="step">1</span>Personal details
+                  </legend>
+                  <div class="row g-3">
+                    <div class="col-md-4">
+                      <label for="first_name" class="form-label"
+                        >First name</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="first_name"
+                        name="first_name"
+                        data-v="name"
+                        autocomplete="given-name"
+                        autocapitalize="words"
+                        autocorrect="off"
+                      />
+                      <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="middle_name" class="form-label">
+                        Middle name
+                        <span class="text-muted fw-normal">(optional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="middle_name"
+                        name="middle_name"
+                        data-v="middle"
+                        autocomplete="additional-name"
+                        autocapitalize="words"
+                        autocorrect="off"
+                      />
+                      <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="last_name" class="form-label"
+                        >Last name</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="last_name"
+                        name="last_name"
+                        data-v="name"
+                        autocomplete="family-name"
+                        autocapitalize="words"
+                        autocorrect="off"
+                      />
+                      <div class="invalid-feedback"></div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- 2. Contact & address -->
+                <fieldset class="reg-section">
+                  <legend class="reg-legend">
+                    <span class="step">2</span>Contact &amp; address
+                  </legend>
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="mobile_number" class="form-label"
+                        >Mobile number</label
+                      >
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="mobile_number"
+                        name="mobile_number"
+                        data-v="mobile"
+                        placeholder="09123456789"
+                        autocomplete="off"
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false"
+                        data-lpignore="true"
+                        data-form-type="other"
+                        inputmode="tel"
+                        maxlength="20"
+                      />
+                      <div class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="email" class="form-label"
+                        >Email address</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        data-v="email"
+                        autocomplete="email"
+                        autocapitalize="none"
+                        autocorrect="off"
+                        spellcheck="false"
+                      />
+                      <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="province" class="form-label">Province</label>
+                      <input
+                        type="text"
+                        class="form-control auto-fill"
+                        id="province"
+                        name="province"
+                        value="Siquijor"
+                        readonly
+                        tabindex="-1"
+                      />
+                    </div>
+                    <div class="col-md-4">
+                      <label for="municipality" class="form-label"
+                        >Municipality</label
+                      >
+                      <select
+                        class="form-select form-control"
+                        id="municipality"
+                        name="municipality"
+                        required
+                      >
+                        <option value="">Select municipality</option>
+                      </select>
+                      <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="barangay" class="form-label">Barangay</label>
+                      <select
+                        class="form-select form-control"
+                        id="barangay"
+                        name="barangay"
+                        required
+                        disabled
+                      >
+                        <option value="">Select municipality first</option>
+                      </select>
+                      <div class="invalid-feedback"></div>
+                    </div>
+                    <input type="hidden" id="address" name="address" />
+                  </div>
+                </fieldset>
+
+                
+
+               <!-- 3. Account security -->
+                <fieldset class="reg-section">
+                  <legend class="reg-legend">
+                    <span class="step">3</span>Account security
+                  </legend>
+
+                  <div class="row">
+                    <!-- Password field -->
+                    <div class="col-md-6">
+                      <label for="password" class="form-label">Password</label>
+
+                      <div class="input-group">
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="password"
+                          name="password"
+                          required
+                        />
+
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary pw-toggle"
+                          data-target="password"
+                          aria-label="Show password"
+                          aria-pressed="false"
+                        >
+                          <svg class="ico eye-off" aria-hidden="true">
+                            <use href="#i-eye-off"></use>
+                          </svg>
+                          <svg class="ico eye-on d-none" aria-hidden="true">
+                            <use href="#i-eye"></use>
+                          </svg>
+                        </button>
+                      </div>
+
+                      <div class="invalid-feedback"></div>
+
+                      <div id="passwordFeedback" class="mt-2">
+                        <small class="d-block text-muted">
+                          Password must be at least 8 characters and include at
+                          least one letter and one number.
+                        </small>
+                      </div>
+                    </div>
+
+                    <!-- Confirm Password field -->
+                    <div class="col-md-6">
+                      <label for="confirm_password" class="form-label">
+                        Confirm Password
+                      </label>
+
+                      <div class="input-group">
+                        <input
+                          type="password"
+                          class="form-control"
+                          id="confirm_password"
+                          name="confirm_password"
+                          required
+                        />
+
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary pw-toggle"
+                          data-target="confirm_password"
+                          aria-label="Show password"
+                          aria-pressed="false"
+                        >
+                          <svg class="ico eye-off" aria-hidden="true">
+                            <use href="#i-eye-off"></use>
+                          </svg>
+                          <svg class="ico eye-on d-none" aria-hidden="true">
+                            <use href="#i-eye"></use>
+                          </svg>
+                        </button>
+                      </div>
+
+                      <div class="invalid-feedback">
+                        Please confirm your password.
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <!-- Terms and Agreement -->
+                <div class="terms-agreement mb-4">
+                  <input
+                    type="checkbox"
+                    id="agreeTerms"
+                    name="agree_terms"
+                    value="1"
+                    required
+                  />
+
+                  <label for="agreeTerms">
+                    I have read and agree to the
+                    <a href="#termsModal" id="openTermsModal">
+                      Terms and Conditions </a
+                    >.
+                  </label>
+
+                  <div
+                    id="termsError"
+                    class="terms-error"
+                    aria-live="polite"
+                  ></div>
+                </div>
+
+                <!-- Floating Terms and Agreement -->
+                <div id="termsModal" class="terms-modal" aria-hidden="true">
+                  <div
+                    class="terms-modal-content"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="termsModalTitle"
+                  >
+                    <button
+                      type="button"
+                      id="closeTermsModal"
+                      class="terms-close"
+                      aria-label="Close"
+                    >
+                      &times;
+                    </button>
+
+                    <h2 id="termsModalTitle">Terms and Conditions</h2>
+
+                    <div class="terms-modal-body">
+                      <h3>I'll BeCare Terms and Conditions</h3>
+                      <p><strong>Last updated: October 24, 2026</strong></p>
+
+                      <h3>1. About I'll BeCare</h3>
+                      <p>I'll BeCare is an academic prototype developed by BSIT III students of Siquijor State College for a school requirement. It is a web platform that helps households in Siquijor Island (Clients) find and book approved care and household support Providers for short-term, on-demand services. It is not a commercial service, it does not collect fees, and it is not a recruitment or employment agency.</p>
+
+                      <h3>2. Who may use the system</h3>
+                      <p class="terms-clause"><strong>2.1</strong> You must be at least 18 years old to register as a Client or a Provider.</p>
+                      <p class="terms-clause"><strong>2.2</strong> You must give true, complete, and current information, and keep your password private.</p>
+                      <p class="terms-clause"><strong>2.3</strong> The Administrator may confirm, block, or suspend any account that breaks these terms.</p>
+
+                      <h3>3. Nature of the services</h3>
+                      <p class="terms-clause"><strong>3.1</strong> Services are short-term and on-demand (hourly, half-day, full-day, custom, or same-day). The system does not support long-term or live-in arrangements.</p>
+                      <p class="terms-clause"><strong>3.2</strong> Providers are not employees of I'll BeCare or of the group. A booking is a one-time arrangement between a Client and a Provider and does not create a continuing employment relationship.</p>
+                      <p class="terms-clause"><strong>3.3</strong> A booking may not exceed 8 hours of service per day, and a meal break must be allowed for longer bookings. Arrangements must not go below the minimum labor standards under the Labor Code and other labor laws.</p>
+
+                      <h3>4. Provider requirements</h3>
+                      <p class="terms-clause"><strong>4.1</strong> Providers must submit a valid government ID and a Barangay Clearance for review. An NBI Clearance is recommended.</p>
+                      <p class="terms-clause"><strong>4.2</strong> Only Providers approved by the Administrator are shown to Clients. The Administrator may reject or suspend a Provider whose documents are unclear, invalid, or false.</p>
+                      <p class="terms-clause"><strong>4.3</strong> Providers set their own hourly rates and may change them. The rate shown at booking is the rate that applies to that booking.</p>
+                      <p class="terms-clause"><strong>4.4</strong> Providers may accept or decline any booking request.</p>
+
+                      <h3>5. Bookings, cost, and payment</h3>
+                      <p class="terms-clause"><strong>5.1</strong> A Client sends a booking request. The booking is confirmed only when the Provider accepts it.</p>
+                      <p class="terms-clause"><strong>5.2</strong> The system shows a cost summary (the Provider's hourly rate multiplied by the booked hours) before the request is sent.</p>
+                      <p class="terms-clause"><strong>5.3</strong> Payment is made face-to-face between the Client and the Provider after the service. The system does not process payments and does not charge any fee, service charge, or commission.</p>
+                      <p class="terms-clause"><strong>5.4</strong> Clients and Providers may cancel a booking through the system. Please cancel as early as possible so the other party can make other plans.</p>
+
+                      <h3>6. Safety and conduct</h3>
+                      <p class="terms-clause"><strong>6.1</strong> Clients must give accurate care details, including emergency contact information, so the Provider can respond properly.</p>
+                      <p class="terms-clause"><strong>6.2</strong> Users must treat each other with respect and must not harass, abuse, or put anyone at risk.</p>
+                      <p class="terms-clause"><strong>6.3</strong> The system does not independently investigate or authenticate documents beyond the Administrator's review. Clients should still use their own judgment.</p>
+                      <p class="terms-clause"><strong>6.4</strong> Ratings and reviews must be honest. The Administrator may remove reviews that break these terms.</p>
+
+                      <h3>7. Complaints</h3>
+                      <p>Clients and Providers may file a complaint or safety concern through the system. The Administrator will review and resolve it within the platform. The system does not mediate or enforce legal action, and serious matters should be reported to the proper authorities.</p>
+
+                      <h3>8. Privacy</h3>
+                      <p>Your personal data, including IDs, clearances, and emergency contact details, is collected only for verification and booking and handled under the Data Privacy Act of 2012 (RA 10173), as explained in the Privacy Notice. Submitted documents are seen only by authorized Administrators.</p>
+
+                      <h3>9. Prototype limits</h3>
+                      <p class="terms-clause"><strong>9.1</strong> The system is for academic use. Use test data only and do not rely on it for emergencies.</p>
+                      <p class="terms-clause"><strong>9.2</strong> The group makes no promise that the system will always be available or error-free.</p>
+                      <p class="terms-clause"><strong>9.3</strong> Any commercial use would first require the appropriate DOLE license and updated terms.</p>
+
+                      <h3>10. Changes</h3>
+                      <p>The group may update these terms. Continued use means you accept the updated terms. By ticking the box at registration, you confirm that you have read and agree to these Terms and Conditions and the Privacy Notice.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="reg-actions">
+                  <button
+                    type="submit"
+                    class="btn btn-primary w-100"
+                    id="submitBtn"
+                  >
+                    Create account
+                  </button>
+                  <p class="reg-login">
+                    Already have an account?
+                    <a href="../index.html" class="fw-semibold">Log in</a>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </article>
+
+          <p class="reg-foot">&copy; I'll BeCare &middot; Siquijor Island</p>
+        </div>
+      </div>
+    </main>
+
+    <script src="../JS/siquijor_barangay.js"></script>
+    <script src="../JS/register_client.js"></script>
+    <script src="../Assets/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

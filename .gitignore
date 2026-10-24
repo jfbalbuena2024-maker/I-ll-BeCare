@@ -1,0 +1,10 @@
+# Local credentials and database data
+/config/connection.php
+/config/email_config.php
+/database/
+*.sql
+*.sql.gz
+*.dump
+
+# User-uploaded files (IDs, NBI clearances, photos)
+/uploads/

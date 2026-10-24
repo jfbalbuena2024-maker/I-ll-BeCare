@@ -1,0 +1,21 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "Nanny_System",
+            "database": "nanny_system_db",
+            "username": "root",
+            "connectionTimeout": 50,
+            "password": ""
+        }
+    ],
+    "chat.disableAIFeatures": false
+}

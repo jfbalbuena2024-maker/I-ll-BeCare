@@ -1,0 +1,717 @@
+
+/* =========================================
+   I'LL BECARE — LOGIN PAGE
+   Responsive layout and alignment
+========================================= */
+
+:root {
+  --teal: #2b6a82;
+  --teal-dark: #1f4f63;
+  --green: #a4bc74;
+  --green-dark: #5f7d2e;
+  --cream: #fbfbf1;
+  --cream-dark: #f3f4e7;
+  --ink: #1d3540;
+  --muted: #5b6f76;
+  --line: #d3dcc6;
+  --error: #b3402f;
+  --white: #ffffff;
+
+  --heading-font: "Montserrat", sans-serif;
+  --body-font: "Source Sans 3", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--cream);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font: 400 16px/1.5 var(--body-font);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--green-dark);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   MAIN PAGE LAYOUT
+========================================= */
+
+.login-page {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* =========================================
+   LEFT BRANDING PANEL
+========================================= */
+
+.intro-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: clamp(28px, 4.5vw, 70px);
+  overflow: hidden;
+  background: #e3f2f7;
+}
+
+.intro-panel::after {
+  content: "";
+  position: absolute;
+  right: -145px;
+  bottom: -175px;
+  width: 340px;
+  height: 340px;
+  border: 48px solid rgba(43, 106, 130, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.intro-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 590px;
+  margin: auto;
+}
+
+.brand {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.intro-brand {
+  margin-bottom: 24px;
+}
+
+.intro-brand img {
+  width: auto;
+  height: clamp(68px, 7vw, 96px);
+  max-width: 230px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.intro-text .tagline {
+  margin: 0 0 10px;
+  color: var(--green-dark);
+  font: 700 0.9rem/1.4 var(--heading-font);
+  letter-spacing: 0.035em;
+}
+
+.intro-text h1 {
+  max-width: 560px;
+  margin: 0 0 16px;
+  color: var(--teal-dark);
+  font: 700 clamp(2rem, 3.1vw, 2.9rem)/1.16 var(--heading-font);
+  letter-spacing: -0.035em;
+  overflow-wrap: break-word;
+}
+
+.intro-description {
+  max-width: 520px;
+  margin: 0;
+  color: #405961;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* =========================================
+   SERVICE CARDS
+========================================= */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 570px;
+  margin-top: 28px;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  min-height: 78px;
+  padding: 13px;
+  background: var(--white);
+  border: 1px solid rgba(43, 106, 130, 0.13);
+  border-radius: 12px;
+}
+
+.service-icon {
+  display: grid;
+  flex: 0 0 42px;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--cream);
+  border: 1px solid rgba(43, 106, 130, 0.08);
+  border-radius: 10px;
+  font-size: 1.25rem;
+}
+
+.service > div:last-child {
+  min-width: 0;
+}
+
+.service h2 {
+  margin: 0 0 4px;
+  color: var(--teal-dark);
+  font: 700 0.88rem/1.35 var(--heading-font);
+}
+
+.service p {
+  margin: 0;
+  color: #52666d;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+}
+
+/* =========================================
+   RIGHT LOGIN PANEL
+========================================= */
+
+.login-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: clamp(24px, 4vw, 60px);
+  background:
+    radial-gradient(
+      ellipse at 100% 0%,
+      rgba(164, 188, 116, 0.12),
+      transparent 45%
+    ),
+    var(--cream);
+}
+
+.login-container {
+  width: 100%;
+  max-width: 440px;
+  min-width: 0;
+  margin: auto;
+}
+
+.mobile-brand {
+  display: none;
+}
+
+/* =========================================
+   LOGIN CARD
+========================================= */
+
+.auth-card {
+  width: 100%;
+  min-width: 0;
+  padding: clamp(24px, 3vw, 38px);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(31, 79, 99, 0.08);
+}
+
+.auth-card-header {
+  margin-bottom: 27px;
+}
+
+.welcome-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--green-dark);
+  font: 700 0.72rem/1.4 var(--heading-font);
+  letter-spacing: 0.12em;
+}
+
+.auth-card-header h2 {
+  margin: 0 0 10px;
+  color: var(--teal);
+  font: 700 clamp(1.45rem, 2.2vw, 1.8rem)/1.25 var(--heading-font);
+  letter-spacing: -0.025em;
+  overflow-wrap: break-word;
+}
+
+.auth-card-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+/* =========================================
+   LOGIN FORM
+========================================= */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+  min-width: 0;
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  margin: 0;
+  color: var(--ink);
+  font: 600 0.93rem/1.45 var(--body-font);
+}
+
+.auth-form input:not([type="checkbox"]) {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 49px;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--white);
+  color: var(--ink);
+  font: 400 16px/1.4 var(--body-font);
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.auth-form input::placeholder {
+  color: #7b8b90;
+  opacity: 1;
+}
+
+.auth-form input:not([type="checkbox"]):focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(43, 106, 130, 0.13);
+}
+
+/* Password label and forgot link */
+
+.password-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  width: 100%;
+}
+
+.password-label-row label {
+  margin: 0;
+}
+
+.forgot {
+  color: var(--green-dark);
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.forgot:hover {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Password field and eye button */
+
+.pw {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.pw input {
+  padding-right: 54px !important;
+}
+
+.eye {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--teal);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.eye:hover {
+  background: var(--cream);
+}
+
+.eye svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.eye .eye-off {
+  display: none;
+}
+
+.eye[aria-pressed="true"] .eye-open {
+  display: none;
+}
+
+.eye[aria-pressed="true"] .eye-off {
+  display: block;
+}
+
+/* =========================================
+   VALIDATION AND STATUS MESSAGES
+========================================= */
+
+.notice {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--green-dark);
+  border-radius: 8px;
+  background: var(--cream);
+  overflow-wrap: anywhere;
+}
+
+.notice.error {
+  border-color: var(--error);
+  color: var(--error);
+}
+
+.err {
+  display: block;
+  min-height: 0;
+  color: var(--error);
+  font-size: 0.83rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.bad input:not([type="checkbox"]) {
+  border-color: var(--error);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+button.go {
+  display: block;
+  width: 100%;
+  min-height: 51px;
+  margin: 3px 0 0;
+  padding: 13px 16px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--teal);
+  color: var(--white);
+  font: 700 0.98rem/1.4 var(--heading-font);
+  text-align: center;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+button.go:hover {
+  background: var(--teal-dark);
+}
+
+button.go:active {
+  transform: translateY(1px);
+}
+
+/* =========================================
+   SIGNUP LINKS AND FOOTER
+========================================= */
+
+.alt {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.alt a {
+  color: var(--green-dark);
+  font-weight: 600;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.alt a:hover {
+  color: var(--teal);
+  text-decoration: underline;
+}
+
+.login-footer {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .intro-panel {
+    display: flex;
+    width: 100%;
+    padding: 25px 28px;
+  }
+
+  .intro-content {
+    max-width: 680px;
+  }
+
+  .intro-brand {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 14px;
+  }
+
+  .intro-brand img {
+    height: 64px;
+    margin: 0 auto;
+    object-position: center;
+  }
+
+  .intro-text {
+    text-align: center;
+  }
+
+  .intro-text h1 {
+    max-width: 580px;
+    margin: 0 auto;
+    font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+  }
+
+  .intro-description,
+  .services {
+    display: none;
+  }
+
+  .login-panel {
+    width: 100%;
+    padding: 32px 22px;
+  }
+
+  .login-container {
+    max-width: 460px;
+  }
+
+  .mobile-brand {
+    display: none;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 599px) {
+  .login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:
+      max(12px, env(safe-area-inset-top, 0px))
+      max(12px, env(safe-area-inset-right, 0px))
+      max(16px, env(safe-area-inset-bottom, 0px))
+      max(12px, env(safe-area-inset-left, 0px));
+  }
+
+  .intro-panel {
+    display: none;
+  }
+
+  .login-panel {
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    background: transparent;
+  }
+
+  .login-container {
+    max-width: 440px;
+  }
+
+  .mobile-brand {
+    display: block;
+    width: fit-content;
+    margin: 0 auto 16px;
+  }
+
+  .mobile-brand img {
+    height: 62px;
+    max-width: 190px;
+    margin: 0 auto;
+    object-position: center;
+  }
+
+  .auth-card {
+    padding: 25px 20px;
+    border-radius: 15px;
+  }
+
+  .auth-card-header {
+    margin-bottom: 23px;
+  }
+
+  .auth-card-header h2 {
+    font-size: 1.48rem;
+  }
+
+  .field {
+    margin-bottom: 18px;
+  }
+
+  .alt {
+    margin-top: 20px;
+    line-height: 1.75;
+  }
+
+  .login-footer {
+    margin-top: 14px;
+  }
+}
+
+/* Smaller phones */
+
+@media (max-width: 360px) {
+  .auth-card {
+    padding: 21px 15px;
+  }
+
+  .auth-card-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .password-label-row {
+    align-items: flex-start;
+  }
+
+  .forgot {
+    font-size: 0.82rem;
+  }
+}
+
+/* =========================================
+   SHORT WINDOWS AND LANDSCAPE
+   Allow natural scrolling instead of clipping
+========================================= */
+
+@media (max-height: 600px) {
+  .login-page {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .login-panel {
+    align-items: flex-start;
+  }
+
+  .login-container {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .intro-description,
+  .services {
+    display: none;
+  }
+
+  .auth-card {
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

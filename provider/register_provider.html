@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Provider Sign Up | I'll BeCare</title>
+
+  <!-- Remove these 3 lines if your login page already loads the fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="../Assets/register_provider.css?v=terms-format-20261024" />
+</head>
+
+<body>
+  <main class="page">
+    <section class="card">
+      <header class="brand">
+        <img src="../Assets/Logo.png" alt="I'll BeCare logo" class="logo" />
+        <h1>Create a Provider Account</h1>
+        <p class="subtitle">
+          Offer your care and household services to families in Siquijor.
+        </p>
+      </header>
+
+      <form id="providerForm" action="../views/register_provider.php" method="post" enctype="multipart/form-data"
+        autocomplete="on">
+        <div id="status" class="status" role="alert" aria-live="polite"></div>
+
+        <!-- PERSONAL DETAILS -->
+        <fieldset>
+          <legend>Personal details</legend>
+
+          <div class="grid grid-3">
+            <div class="field">
+              <label for="first_name">First name</label>
+              <input type="text" id="first_name" name="first_name" maxlength="50" autocomplete="given-name"
+                placeholder="Juan" required />
+            </div>
+            <div class="field">
+              <label for="middle_name">Middle name <span class="opt">(optional)</span></label>
+              <input type="text" id="middle_name" name="middle_name" maxlength="50" autocomplete="additional-name"
+                placeholder="Santos" />
+            </div>
+            <div class="field">
+              <label for="last_name">Last name</label>
+              <input type="text" id="last_name" name="last_name" maxlength="50" autocomplete="family-name"
+                placeholder="Dela Cruz" required />
+            </div>
+          </div>
+
+          <div class="grid grid-2">
+            <div class="field">
+              <label for="email">Email address</label>
+              <input type="email" id="email" name="email" maxlength="150" autocomplete="email"
+                placeholder="name@example.com" required />
+              <small id="emailMsg" class="field-msg" aria-live="polite"></small>
+            </div>
+            <div class="field">
+              <label for="mobile_number">Mobile number</label>
+              <input type="tel" id="mobile_number" name="mobile_number" inputmode="tel" autocomplete="tel"
+                pattern="(09|\+639)[0-9]{9}" maxlength="13" placeholder="09123456789" required />
+            </div>
+          </div>
+
+          <div class="grid grid-3">
+            <div class="field">
+              <label for="province">Province</label>
+              <input type="text" id="province" class="auto-fill" value="Siquijor" readonly tabindex="-1" />
+            </div>
+            <div class="field">
+              <label for="municipality">Municipality</label>
+              <select id="municipality" name="municipality" required>
+                <option value="">Select municipality</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="barangay">Barangay</label>
+              <select id="barangay" name="barangay" required disabled>
+                <option value="">Select municipality first</option>
+              </select>
+            </div>
+          </div>
+          <input type="hidden" id="location" name="location" />
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="password" name="password" minlength="8" maxlength="72"
+                placeholder="At least 8 characters" autocomplete="new-password" required />
+              <button type="button" class="pw-toggle" data-target="password" aria-label="Show password"
+                aria-pressed="false">
+                <svg class="eye" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                <svg class="eye-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a19.77 19.77 0 0 1 5.06-5.94M9.9 4.24A10.9 10.9 0 0 1 12 5c7 0 11 7 11 7a19.86 19.86 0 0 1-3.17 4.19M14.12 14.12a3 3 0 1 1-4.24-4.24" />
+                  <line x1="1" y1="1" x2="23" y2="23" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="confirm_password">Confirm password</label>
+            <div class="pw-wrap">
+              <input type="password" id="confirm_password" name="confirm_password" minlength="8" maxlength="72"
+                placeholder="Re-enter password" autocomplete="new-password" required />
+              <p id="passwordMatchMsg" class="field-msg" aria-live="polite"></p>
+              <button type="button" class="pw-toggle" data-target="confirm_password" aria-label="Show password"
+                aria-pressed="false">
+                <svg class="eye" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                <svg class="eye-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a19.77 19.77 0 0 1 5.06-5.94M9.9 4.24A10.9 10.9 0 0 1 12 5c7 0 11 7 11 7a19.86 19.86 0 0 1-3.17 4.19M14.12 14.12a3 3 0 1 1-4.24-4.24" />
+                  <line x1="1" y1="1" x2="23" y2="23" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- SERVICES -->
+        <fieldset>
+          <legend>Services you offer</legend>
+          <p class="hint">
+            Tick every service you provide and set your hourly rate for each.
+            You can change these later.
+          </p>
+          <p id="servicesError" class="field-msg error" aria-live="polite"></p>
+
+          <div class="service">
+            <label class="service-name" for="svc1">
+              <input type="checkbox" id="svc1" name="services[]" value="1" data-needs-clearance="true" />
+              <span><strong>Childcare</strong><small>Babysitting and child supervision</small></span>
+            </label>
+            <div class="rate">
+              <span class="peso" aria-hidden="true">&#8369;</span>
+              <input type="number" name="rate[1]" min="0" step="0.01" inputmode="decimal" placeholder="0.00"
+                aria-label="Hourly rate for Childcare" />
+              <span class="per">/hr</span>
+            </div>
+          </div>
+
+          <div class="service">
+            <label class="service-name" for="svc2">
+              <input type="checkbox" id="svc2" name="services[]" value="2" data-needs-clearance="true" />
+              <span><strong>Senior companionship</strong><small>Companionship and assistance for older
+                  adults</small></span>
+            </label>
+            <div class="rate">
+              <span class="peso" aria-hidden="true">&#8369;</span>
+              <input type="number" name="rate[2]" min="0" step="0.01" inputmode="decimal" placeholder="0.00"
+                aria-label="Hourly rate for Senior companionship" />
+              <span class="per">/hr</span>
+            </div>
+          </div>
+
+          <div class="service">
+            <label class="service-name" for="svc3">
+              <input type="checkbox" id="svc3" name="services[]" value="3" />
+              <span><strong>Pet care</strong><small>Pet sitting, feeding and walking</small></span>
+            </label>
+            <div class="rate">
+              <span class="peso" aria-hidden="true">&#8369;</span>
+              <input type="number" name="rate[3]" min="0" step="0.01" inputmode="decimal" placeholder="0.00"
+                aria-label="Hourly rate for Pet care" />
+              <span class="per">/hr</span>
+            </div>
+          </div>
+
+          <div class="service">
+            <label class="service-name" for="svc4">
+              <input type="checkbox" id="svc4" name="services[]" value="4" />
+              <span><strong>Housekeeping</strong><small>Cleaning and household help</small></span>
+            </label>
+            <div class="rate">
+              <span class="peso" aria-hidden="true">&#8369;</span>
+              <input type="number" name="rate[4]" min="0" step="0.01" inputmode="decimal" placeholder="0.00"
+                aria-label="Hourly rate for Housekeeping" />
+              <span class="per">/hr</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- VERIFICATION -->
+        <fieldset>
+          <legend>Verification documents</legend>
+          <p class="hint">
+            Your account is reviewed by the Administrator. Accepted files:
+            JPG, PNG or PDF (max 5 MB each).
+          </p>
+
+          <div class="field">
+            <label for="government_id">Valid government ID</label>
+            <input type="file" id="government_id" name="government_id" accept=".jpg,.jpeg,.png,.pdf" required />
+          </div>
+
+
+          <!-- Shown by JS only when Childcare or Senior companionship is ticked -->
+          <div id="clearanceBox" class="clearance is-hidden">
+            <div class="grid grid-2">
+              <div class="field">
+                <label for="clearance_type">Clearance type</label>
+                <select id="clearance_type" name="clearance_type">
+                  <option value="">Select clearance type</option>
+                  <option value="nbi_clearance">NBI clearance</option>
+                  <option value="police_clearance">Police clearance</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="clearance_file">Clearance file</label>
+                <input type="file" id="clearance_file" name="clearance_file" accept=".jpg,.jpeg,.png,.pdf" />
+              </div>
+            </div>
+            <p class="hint small">
+              Required because you offer <strong>Childcare</strong> or
+              <strong>Senior companionship</strong>.
+            </p>
+          </div>
+        </fieldset>
+
+        <!-- TERMS AND AGREEMENT -->
+
+          <div class="terms-agreement">
+            <label class="agree-label">
+              <input type="checkbox" id="agreeTerms" name="agree_terms" value="1" />
+              <span>
+                I agree to the
+                <a href="#" id="openTerms">Terms and Conditions</a>.
+              </span>
+            </label>
+            <p id="termsError" class="terms-error" hidden>
+              You must agree to the Terms and Conditions before creating an
+              account.
+            </p>
+          </div>
+
+          <!-- TERMS POPUP -->
+          <div id="termsModal" class="terms-modal" hidden>
+            <div class="terms-modal-content" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+              <button type="button" id="closeTerms" class="close-terms" aria-label="Close">
+                &times;
+              </button>
+
+              <h2 id="termsTitle">Terms and Conditions</h2>
+
+              <div class="terms-body">
+                <h3>I'll BeCare Terms and Conditions</h3>
+                <p><strong>Last updated: October 24, 2026</strong></p>
+
+                <h3>1. About I'll BeCare</h3>
+                <p>I'll BeCare is an academic prototype developed by BSIT III students of Siquijor State College for a school requirement. It is a web platform that helps households in Siquijor Island (Clients) find and book approved care and household support Providers for short-term, on-demand services. It is not a commercial service, it does not collect fees, and it is not a recruitment or employment agency.</p>
+
+                <h3>2. Who may use the system</h3>
+                <p class="terms-clause"><strong>2.1</strong> You must be at least 18 years old to register as a Client or a Provider.</p>
+                <p class="terms-clause"><strong>2.2</strong> You must give true, complete, and current information, and keep your password private.</p>
+                <p class="terms-clause"><strong>2.3</strong> The Administrator may confirm, block, or suspend any account that breaks these terms.</p>
+
+                <h3>3. Nature of the services</h3>
+                <p class="terms-clause"><strong>3.1</strong> Services are short-term and on-demand (hourly, half-day, full-day, custom, or same-day). The system does not support long-term or live-in arrangements.</p>
+                <p class="terms-clause"><strong>3.2</strong> Providers are not employees of I'll BeCare or of the group. A booking is a one-time arrangement between a Client and a Provider and does not create a continuing employment relationship.</p>
+                <p class="terms-clause"><strong>3.3</strong> A booking may not exceed 8 hours of service per day, and a meal break must be allowed for longer bookings. Arrangements must not go below the minimum labor standards under the Labor Code and other labor laws.</p>
+
+                <h3>4. Provider requirements</h3>
+                <p class="terms-clause"><strong>4.1</strong> Providers must submit a valid government ID and a Barangay Clearance for review. An NBI Clearance is recommended.</p>
+                <p class="terms-clause"><strong>4.2</strong> Only Providers approved by the Administrator are shown to Clients. The Administrator may reject or suspend a Provider whose documents are unclear, invalid, or false.</p>
+                <p class="terms-clause"><strong>4.3</strong> Providers set their own hourly rates and may change them. The rate shown at booking is the rate that applies to that booking.</p>
+                <p class="terms-clause"><strong>4.4</strong> Providers may accept or decline any booking request.</p>
+
+                <h3>5. Bookings, cost, and payment</h3>
+                <p class="terms-clause"><strong>5.1</strong> A Client sends a booking request. The booking is confirmed only when the Provider accepts it.</p>
+                <p class="terms-clause"><strong>5.2</strong> The system shows a cost summary (the Provider's hourly rate multiplied by the booked hours) before the request is sent.</p>
+                <p class="terms-clause"><strong>5.3</strong> Payment is made face-to-face between the Client and the Provider after the service. The system does not process payments and does not charge any fee, service charge, or commission.</p>
+                <p class="terms-clause"><strong>5.4</strong> Clients and Providers may cancel a booking through the system. Please cancel as early as possible so the other party can make other plans.</p>
+
+                <h3>6. Safety and conduct</h3>
+                <p class="terms-clause"><strong>6.1</strong> Clients must give accurate care details, including emergency contact information, so the Provider can respond properly.</p>
+                <p class="terms-clause"><strong>6.2</strong> Users must treat each other with respect and must not harass, abuse, or put anyone at risk.</p>
+                <p class="terms-clause"><strong>6.3</strong> The system does not independently investigate or authenticate documents beyond the Administrator's review. Clients should still use their own judgment.</p>
+                <p class="terms-clause"><strong>6.4</strong> Ratings and reviews must be honest. The Administrator may remove reviews that break these terms.</p>
+
+                <h3>7. Complaints</h3>
+                <p>Clients and Providers may file a complaint or safety concern through the system. The Administrator will review and resolve it within the platform. The system does not mediate or enforce legal action, and serious matters should be reported to the proper authorities.</p>
+
+                <h3>8. Privacy</h3>
+                <p>Your personal data, including IDs, clearances, and emergency contact details, is collected only for verification and booking and handled under the Data Privacy Act of 2012 (RA 10173), as explained in the Privacy Notice. Submitted documents are seen only by authorized Administrators.</p>
+
+                <h3>9. Prototype limits</h3>
+                <p class="terms-clause"><strong>9.1</strong> The system is for academic use. Use test data only and do not rely on it for emergencies.</p>
+                <p class="terms-clause"><strong>9.2</strong> The group makes no promise that the system will always be available or error-free.</p>
+                <p class="terms-clause"><strong>9.3</strong> Any commercial use would first require the appropriate DOLE license and updated terms.</p>
+
+                <h3>10. Changes</h3>
+                <p>The group may update these terms. Continued use means you accept the updated terms. By ticking the box at registration, you confirm that you have read and agree to these Terms and Conditions and the Privacy Notice.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <button type="submit" class="btn">Create provider account</button>
+
+          <p class="switch">
+            Already have an account? <a href="../index.html">Log in</a>
+          </p>
+      </form>
+    </section>
+  </main>
+
+  <script src="../JS/siquijor_barangay.js"></script>
+  <script src="../JS/register_provider.js"></script>
+</body>
+
+</html>
